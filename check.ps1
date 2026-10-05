@@ -12,7 +12,11 @@ Set-StrictMode -Version Latest
 $script:step = 'setup'
 function Step([string]$name) { $script:step = $name; Write-Host "==> $name" }
 function Run {
-    & $args[0] @($args | Select-Object -Skip 1)
+    # Splat from a variable: an inline @(...) would pass the arguments as
+    # one array, which Scoop reads as a single word.
+    $cmd = $args[0]
+    $rest = @($args | Select-Object -Skip 1)
+    & $cmd @rest
     if ($LASTEXITCODE -ne 0) { throw "$($args -join ' ') exited with $LASTEXITCODE" }
 }
 trap {
