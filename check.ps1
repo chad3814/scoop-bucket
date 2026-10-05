@@ -47,8 +47,16 @@ Run scoop install (Join-Path $PSScriptRoot 'bucket/zenvik.json')
 Step 'zenvik --version'
 $out = (Run zenvik --version) -join "`n"
 if ($out -notlike "zenvik v$ver*") { throw "zenvik --version printed: $out" }
-Step 'mkvmerge from the Extras dependency'
-$out = (Run mkvmerge --version) -join "`n"
+Step "the CLI's mkvmerge"
+# From v1.3.0 the CLI zip bundles mkvmerge.exe beside zenvik.exe; older
+# manifests got it from Extras instead.
+$cli = ((Run scoop prefix zenvik) | Select-Object -Last 1).Trim()
+$bundled = Join-Path $cli 'mkvmerge.exe'
+if (Test-Path $bundled) {
+    $out = (Run $bundled --version) -join "`n"
+} else {
+    $out = (Run mkvmerge --version) -join "`n"
+}
 if ($out -notlike 'mkvmerge v*') { throw "mkvmerge --version printed: $out" }
 
 Step 'install zenvik-gui'
