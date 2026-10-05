@@ -1,0 +1,30 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install Scoop
+        run: |
+          iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
+          "$env:USERPROFILE\scoop\shims" | Out-File -FilePath $env:GITHUB_PATH -Append -Encoding utf8
+      - name: Does Scoop resolve extras/mkvtoolnix without the extras bucket? (informational)
+        continue-on-error: true
+        run: |
+          scoop install .\bucket\zenvik.json
+          Write-Host "scoop install without extras exited with $LASTEXITCODE"
+          scoop list
+          scoop uninstall zenvik
+          scoop uninstall mkvtoolnix
+      - run: .\check.ps1
