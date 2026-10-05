@@ -1,14 +1,14 @@
 {
-    "version": "1.2.0",
+    "version": "1.2.1",
     "description": "Desktop app to remux Blu-ray and DVD disc images to MKV",
     "homepage": "https://github.com/chad3814/zenvik",
     "license": "MIT,GPL-2.0-only",
     "notes": "Zenvik needs the Microsoft Edge WebView2 runtime, which Windows 11 includes. It bundles mkvmerge from MKVToolNix (GPLv2; see MKVTOOLNIX-NOTICE.txt in the app folder).",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/chad3814/zenvik/releases/download/v1.2.0/zenvik-gui_1.2.0_windows_amd64.zip",
-            "hash": "0caa31d8d12a6303e0f8f6fa12a7c33705f60e0c15feeb113583ec8bf61310d2",
-            "extract_dir": "zenvik-gui_1.2.0_windows_amd64"
+            "url": "https://github.com/chad3814/zenvik/releases/download/v1.2.1/zenvik-gui_1.2.1_windows_amd64.zip",
+            "hash": "4e395059c984faed3cb12394fc0d0d98f725b0342d4bc77cb8a74b656af90982",
+            "extract_dir": "zenvik-gui_1.2.1_windows_amd64"
         }
     },
     "shortcuts": [
