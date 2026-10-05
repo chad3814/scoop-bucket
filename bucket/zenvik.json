@@ -1,13 +1,13 @@
 {
-    "version": "1.3.0",
+    "version": "1.3.1",
     "description": "Remux Blu-ray and DVD disc images to MKV",
     "homepage": "https://github.com/chad3814/zenvik",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/chad3814/zenvik/releases/download/v1.3.0/zenvik_1.3.0_windows_amd64.zip",
-            "hash": "fb44206f9efdcd96a623df50dcba3fdddb11a29ea1b3602d25f2e015c89fca1e",
-            "extract_dir": "zenvik_1.3.0_windows_amd64"
+            "url": "https://github.com/chad3814/zenvik/releases/download/v1.3.1/zenvik_1.3.1_windows_amd64.zip",
+            "hash": "d4e8ba0513485e793dfbf8017be6c0b49594b25cb822f0f6e89a04f8c30a87fd",
+            "extract_dir": "zenvik_1.3.1_windows_amd64"
         }
     },
     "bin": "zenvik.exe",
